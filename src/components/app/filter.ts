@@ -1,13 +1,13 @@
-import toggle from '../misc/toggle';
-import constValues from '../misc/constValues';
+import toggle from "../misc/toggle";
+import constValues from "../misc/constValues";
 
-import Slider from '../nouislider/sliderInit';
-import FilterView from '../view/filterView';
-import DataView from '../view/dataView';
-import SavedSettings from './savedFilters';
+import Slider from "../nouislider/sliderInit";
+import FilterView from "../view/filterView";
+import DataView from "../view/dataView";
+import SavedSettings from "./savedFilters";
 
-import IToy from '../interfaces/IToy';
-import ICondition from '../interfaces/ICondition';
+import IToy from "../interfaces/IToy";
+import ICondition from "../interfaces/ICondition";
 
 class Filter {
   private data: IToy[];
@@ -58,13 +58,17 @@ class Filter {
       }
     }
     if (this.condition.count.length !== 0) {
-      res = +this.condition.count[0] <= +toy.count && +this.condition.count[1] >= +toy.count;
+      res =
+        +this.condition.count[0] <= +toy.count &&
+        +this.condition.count[1] >= +toy.count;
       if (!res) {
         return false;
       }
     }
     if (this.condition.year.length !== 0) {
-      res = +this.condition.year[0] <= +toy.year && +this.condition.year[1] >= +toy.year;
+      res =
+        +this.condition.year[0] <= +toy.year &&
+        +this.condition.year[1] >= +toy.year;
       if (!res) {
         return false;
       }
@@ -76,28 +80,28 @@ class Filter {
   }
 
   private updateCondition(type: string, param: string | string[]): void {
-    if (type === 'count') {
+    if (type === "count") {
       this.condition.count = param as string[];
     }
-    if (type === 'year') {
+    if (type === "year") {
       this.condition.year = param as string[];
     }
-    if (type === 'shape') {
+    if (type === "shape") {
       toggle(this.condition.shape, param as string);
     }
-    if (type === 'color') {
+    if (type === "color") {
       toggle(this.condition.color, param as string);
     }
-    if (type === 'size') {
+    if (type === "size") {
       toggle(this.condition.size, param as string);
     }
-    if (type === 'fav') {
+    if (type === "fav") {
       this.condition.favorite = !this.condition.favorite;
     }
-    if (type === 'sort') {
+    if (type === "sort") {
       this.condition.sortType = param as string;
     }
-    if (type === 'search') {
+    if (type === "search") {
       this.condition.searchKey = param as string;
     }
     SavedSettings.setCondition(this.condition);
@@ -105,16 +109,16 @@ class Filter {
 
   private setSortType(e: Event): void {
     if (e) {
-      this.updateCondition('sort', (e.currentTarget as HTMLInputElement).value);
+      this.updateCondition("sort", (e.currentTarget as HTMLInputElement).value);
     }
     this.showFiltered();
   }
 
   private setShape(type: string, e: Event): void {
-    const param = (e.target as HTMLElement).getAttribute('filter');
+    const param = (e.target as HTMLElement).getAttribute("filter");
     if (param) {
       this.updateCondition(type, param as string);
-      (e.target as HTMLElement).classList.toggle('clicked');
+      (e.target as HTMLElement).classList.toggle("clicked");
       this.showFiltered();
     }
   }
@@ -124,10 +128,10 @@ class Filter {
     const rightRange: Node | null = document.querySelector(`.${type}-to`);
     const [leftValue, rightValue] = param;
     if (leftRange !== null) {
-      leftRange.textContent = leftValue?.split('.').shift() as string;
+      leftRange.textContent = leftValue?.split(".").shift() as string;
     }
     if (rightRange !== null) {
-      rightRange.textContent = rightValue?.split('.').shift() as string;
+      rightRange.textContent = rightValue?.split(".").shift() as string;
     }
   }
 
@@ -139,20 +143,21 @@ class Filter {
 
   private setSearchKey(e: Event): void {
     const searchStr = (e.target as HTMLInputElement).value.toLowerCase();
-    this.updateCondition('search', searchStr);
+    this.updateCondition("search", searchStr);
     this.showFiltered();
   }
 
   private getFilteredData(): void {
     this.filteredData = this.data.filter((elem) => this.compareFunc(elem));
-    this.filteredData = this.filteredData
-      .filter((elem) => elem.name.toLowerCase().indexOf(this.condition.searchKey) !== -1);
-    const sortTemp: string[] = this.condition.sortType.split('-');
-    if (sortTemp[0] === 'name') {
+    this.filteredData = this.filteredData.filter(
+      (elem) => elem.name.toLowerCase().indexOf(this.condition.searchKey) !== -1
+    );
+    const sortTemp: string[] = this.condition.sortType.split("-");
+    if (sortTemp[0] === "name") {
       this.filteredData.sort((a, b) => a.name.localeCompare(b.name));
     }
-    if (sortTemp[0] === 'year') {
-      this.filteredData.sort((a, b) => (+a.year - +b.year));
+    if (sortTemp[0] === "year") {
+      this.filteredData.sort((a, b) => +a.year - +b.year);
     }
     if (sortTemp[1]) {
       this.filteredData = this.filteredData.reverse();
@@ -169,12 +174,12 @@ class Filter {
   }
 
   private static toggleSearchAlert(flag: boolean): void {
-    const node: Element | null = document.querySelector('.search-alert');
+    const node: Element | null = document.querySelector(".search-alert");
     if (node !== null) {
       if (flag) {
-        node.classList.remove('hide');
+        node.classList.remove("hide");
       } else {
-        node.classList.add('hide');
+        node.classList.add("hide");
       }
     }
   }
@@ -199,8 +204,8 @@ class Filter {
 
   private clearFavToys(): void {
     this.dataView.clearFavToys();
-    this.condition.sortType = 'name';
-    this.condition.searchKey = '';
+    this.condition.sortType = "name";
+    this.condition.searchKey = "";
     FilterView.showDefaultSort();
     this.savedSettings.setDefaultFav();
     this.showFiltered();
@@ -210,27 +215,43 @@ class Filter {
     FilterView.showSelectedFilters(this.condition);
     this.slider.countSlider!.noUiSlider!.set(this.condition.count);
     this.slider.yearSlider!.noUiSlider!.set(this.condition.year);
-    (document.querySelector('.search') as HTMLInputElement).value = this.condition.searchKey;
-    this.setRange('year', this.condition.year);
-    this.setRange('count', this.condition.count);
+    (document.querySelector(".search") as HTMLInputElement).value =
+      this.condition.searchKey;
+    this.setRange("year", this.condition.year);
+    this.setRange("count", this.condition.count);
   }
 
   private initFilters(): void {
     FilterView.drawFilters();
-    ['shape', 'color', 'size', 'fav'].forEach((item) => {
-      document.querySelector(`.${item}-filters`)
-        ?.addEventListener('click', (e: Event) => this.setShape(item, e));
+    ["shape", "color", "size", "fav"].forEach((item) => {
+      document
+        .querySelector(`.${item}-filters`)
+        ?.addEventListener("click", (e: Event) => this.setShape(item, e));
     });
-    this.slider.countSlider!.noUiSlider!.on('slide', () => {
-      this.setRange('count', (this.slider.countSlider!.noUiSlider!.get() as string[]));
+    this.slider.countSlider!.noUiSlider!.on("slide", () => {
+      this.setRange(
+        "count",
+        this.slider.countSlider!.noUiSlider!.get() as string[]
+      );
     });
-    this.slider.yearSlider!.noUiSlider!.on('slide', () => {
-      this.setRange('year', (this.slider.yearSlider!.noUiSlider!.get() as string[]));
+    this.slider.yearSlider!.noUiSlider!.on("slide", () => {
+      this.setRange(
+        "year",
+        this.slider.yearSlider!.noUiSlider!.get() as string[]
+      );
     });
-    document.querySelector('.sort-select')?.addEventListener('change', (e: Event) => this.setSortType(e));
-    document.querySelector('.reset-filter')?.addEventListener('click', () => this.clearFilters());
-    document.querySelector('.reset-fav')?.addEventListener('click', () => this.clearFavToys());
-    document.querySelector('.search')?.addEventListener('input', (e) => this.setSearchKey(e));
+    document
+      .querySelector(".sort-select")
+      ?.addEventListener("change", (e: Event) => this.setSortType(e));
+    document
+      .querySelector(".reset-filter")
+      ?.addEventListener("click", () => this.clearFilters());
+    document
+      .querySelector(".reset-fav")
+      ?.addEventListener("click", () => this.clearFavToys());
+    document
+      .querySelector(".search")
+      ?.addEventListener("input", (e) => this.setSearchKey(e));
   }
 
   public start(): void {

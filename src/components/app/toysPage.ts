@@ -1,6 +1,6 @@
-import AppController from '../controller/controller';
-import Filter from './filter';
-import IToy from '../interfaces/IToy';
+import AppController from "../controller/controller";
+import Filter from "./filter";
+import IToy from "../interfaces/IToy";
 
 class ToysPage {
   private controller: AppController;

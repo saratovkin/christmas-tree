@@ -1,6 +1,6 @@
-import * as noUiType from 'nouislider';
-import noUiSlider from './nouislider';
-import constValues from '../misc/constValues';
+import * as noUiType from "nouislider";
+import noUiSlider from "./nouislider";
+import constValues from "../misc/constValues";
 
 class Slider {
   public countSlider: noUiType.target;
@@ -8,8 +8,10 @@ class Slider {
   public yearSlider: noUiType.target;
 
   constructor() {
-    this.countSlider = document.getElementById('count-slider') as noUiType.target;
-    this.yearSlider = document.getElementById('year-slider') as noUiType.target;
+    this.countSlider = document.getElementById(
+      "count-slider"
+    ) as noUiType.target;
+    this.yearSlider = document.getElementById("year-slider") as noUiType.target;
     noUiSlider.create(this.countSlider, {
       animate: false,
       start: [+constValues.minCount, +constValues.maxCount],

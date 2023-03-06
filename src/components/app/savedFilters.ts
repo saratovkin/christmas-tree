@@ -1,5 +1,5 @@
-import ICondition from '../interfaces/ICondition';
-import constValues from '../misc/constValues';
+import ICondition from "../interfaces/ICondition";
+import constValues from "../misc/constValues";
 
 class savedFilters {
   public savedCondition: ICondition;
@@ -7,21 +7,23 @@ class savedFilters {
   public favList: string[];
 
   constructor() {
-    this.savedCondition = JSON.parse(localStorage.getItem('condition') as string) || {
+    this.savedCondition = JSON.parse(
+      localStorage.getItem("condition") as string
+    ) || {
       count: [constValues.minCount, constValues.maxCount],
       year: [constValues.minYear, constValues.maxYear],
       shape: [],
       color: [],
       size: [],
       favorite: false,
-      sortType: 'name',
-      searchKey: '',
+      sortType: "name",
+      searchKey: "",
     };
-    this.favList = JSON.parse(localStorage.getItem('favList') as string) || [];
+    this.favList = JSON.parse(localStorage.getItem("favList") as string) || [];
   }
 
   static setCondition(condition: ICondition): void {
-    localStorage.setItem('condition', JSON.stringify(condition));
+    localStorage.setItem("condition", JSON.stringify(condition));
   }
 
   public setDefaultFilter(): void {
@@ -39,14 +41,14 @@ class savedFilters {
   }
 
   public setDefaultFav(): void {
-    this.savedCondition.sortType = 'name';
-    this.savedCondition.searchKey = '';
+    this.savedCondition.sortType = "name";
+    this.savedCondition.searchKey = "";
     savedFilters.setCondition(this.savedCondition);
     savedFilters.setFavToys([]);
   }
 
   static setFavToys(favList: string[]): void {
-    localStorage.setItem('favList', JSON.stringify(favList));
+    localStorage.setItem("favList", JSON.stringify(favList));
   }
 }
 

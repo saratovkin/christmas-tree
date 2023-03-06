@@ -1,5 +1,5 @@
-import ToysPage from './toysPage';
-import MainPage from './mainPage';
+import ToysPage from "./toysPage";
+import MainPage from "./mainPage";
 
 class App {
   private toysPage: ToysPage;

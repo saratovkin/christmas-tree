@@ -22,7 +22,7 @@
 }
 
 .section-name {
-  font-family: 'Lora';
+  font-family: "Lora";
   font-weight: 500;
   text-align: center;
 }
@@ -49,7 +49,7 @@
   background-size: 40px 40px;
   background-repeat: no-repeat;
   cursor: pointer;
-  transition: filter .2s;
+  transition: filter 0.2s;
 }
 
 .snow-button {
@@ -62,18 +62,19 @@
 
 .snow-button.clicked,
 .sound-button.clicked {
-  filter: invert(57%) sepia(55%) saturate(5342%) hue-rotate(330deg) brightness(103%) contrast(96%);
+  filter: invert(57%) sepia(55%) saturate(5342%) hue-rotate(330deg)
+    brightness(103%) contrast(96%);
 }
 
 .snow-button:hover,
 .sound-button:hover {
-  filter: brightness(.8);
+  filter: brightness(0.8);
 }
 
 .snow-button.clicked:hover,
 .sound-button.clicked:hover {
-  filter: invert(57%) sepia(55%) saturate(5342%) hue-rotate(330deg) brightness(75%) contrast(96%);
-
+  filter: invert(57%) sepia(55%) saturate(5342%) hue-rotate(330deg)
+    brightness(75%) contrast(96%);
 }
 
 .tree-picker,
@@ -100,7 +101,7 @@
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
-  transition: transform .2s;
+  transition: transform 0.2s;
   border: 3px solid #fb5756;
   box-sizing: border-box;
   border-radius: 5px;
@@ -130,7 +131,7 @@
   border-radius: 16px;
   border: 1px solid #fff;
   cursor: pointer;
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 
 .garland-option:hover {
@@ -138,7 +139,15 @@
 }
 
 .garland-option.multi {
-  background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+  background: linear-gradient(
+    to right,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+  );
 }
 
 .garland-option.red {
@@ -172,7 +181,7 @@
   border: none;
   color: #fff;
   border-radius: 10px;
-  transition: background-color .2s;
+  transition: background-color 0.2s;
   cursor: pointer;
 }
 
@@ -191,9 +200,9 @@
   background-color: #d94d4c;
 }
 
-@media (max-width:1000px) {
+@media (max-width: 1000px) {
   .tree-option,
-  .toy-option{
+  .toy-option {
     width: 50px;
     height: 50px;
     background-size: 50px 50px;

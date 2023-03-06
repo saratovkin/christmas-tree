@@ -1,4 +1,4 @@
-import IToy from '../interfaces/IToy';
+import IToy from "../interfaces/IToy";
 
 class Loader {
   private link: string;
@@ -11,7 +11,7 @@ class Loader {
     try {
       const res = await fetch(this.link);
       const data = await res.json();
-      return (data as IToy[]);
+      return data as IToy[];
     } catch (err) {
       return console.error(err);
     }

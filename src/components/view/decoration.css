@@ -27,18 +27,18 @@
 }
 
 .decoration {
-  transition: background-color .2s;
+  transition: background-color 0.2s;
 }
 
-.decoration:nth-child(2n+1){
+.decoration:nth-child(2n + 1) {
   background-color: #fab8ba;
 }
-.decoration:nth-child(3n+1){
+.decoration:nth-child(3n + 1) {
   background-color: #fdb6ba;
 }
 
 .decoration.fav-toy {
-  background-color:  #eec666;
+  background-color: #eec666;
 }
 
 .decoration * {
@@ -49,7 +49,7 @@
   margin-top: 15px;
   height: 40px;
   font-size: 18px;
-  font-family: 'Lora';
+  font-family: "Lora";
   font-weight: 500;
 }
 
@@ -62,7 +62,7 @@
   width: 60px;
   margin: 0 auto;
   cursor: pointer;
-  transition: transform .5s;
+  transition: transform 0.5s;
   user-select: none;
 }
 
@@ -80,7 +80,7 @@
   height: 50px;
   background-color: #fb5756;
   color: #fff;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
   user-select: none;
   pointer-events: none;
 }

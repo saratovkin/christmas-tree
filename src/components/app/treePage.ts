@@ -1,7 +1,7 @@
-import IToy from '../interfaces/IToy';
-import ToysView from '../view/toysView';
-import TreeView from '../view/treeView';
-import Effects from '../view/effects';
+import IToy from "../interfaces/IToy";
+import ToysView from "../view/toysView";
+import TreeView from "../view/treeView";
+import Effects from "../view/effects";
 
 class TreePage {
   private toys: IToy[];
@@ -47,17 +47,26 @@ class TreePage {
   }
 
   public static showSavedParams() {
-    const savedBg: string = localStorage.getItem('bg-image') || 'url("bg/1.jpg")';
-    const savedTree: string = localStorage.getItem('tree-image') || 'url("tree/1.png")';
-    (document.querySelector('.bg-image') as HTMLElement).style.backgroundImage = savedBg;
-    (document.querySelector('.tree-image') as HTMLElement).style.backgroundImage = savedTree;
+    const savedBg: string =
+      localStorage.getItem("bg-image") || 'url("bg/1.jpg")';
+    const savedTree: string =
+      localStorage.getItem("tree-image") || 'url("tree/1.png")';
+    (document.querySelector(".bg-image") as HTMLElement).style.backgroundImage =
+      savedBg;
+    (
+      document.querySelector(".tree-image") as HTMLElement
+    ).style.backgroundImage = savedTree;
   }
 
   public initTreePage() {
     TreeView.initBtns();
     TreePage.showSavedParams();
     this.effects.initEffectsButtons();
-    document.querySelector('.garland-picker')?.addEventListener('click', (e) => { Effects.initLightLine(e); });
+    document
+      .querySelector(".garland-picker")
+      ?.addEventListener("click", (e) => {
+        Effects.initLightLine(e);
+      });
   }
 }
 

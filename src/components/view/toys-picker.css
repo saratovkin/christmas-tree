@@ -8,7 +8,7 @@
 }
 
 .toys-picker {
-  user-select: none; 
+  user-select: none;
 }
 
 .toy-option {
@@ -19,7 +19,7 @@
   background-size: 50px 50px;
   background-color: #fff;
   cursor: pointer;
-  transition: transform .2s;
+  transition: transform 0.2s;
   border: 3px solid #fb5756;
   box-sizing: border-box;
   border-radius: 5px;

@@ -1,28 +1,28 @@
-import './toys-picker.css';
+import "./toys-picker.css";
 
-import ToyMove from './toyMove';
-import IToy from '../interfaces/IToy';
+import ToyMove from "./toyMove";
+import IToy from "../interfaces/IToy";
 
 class ToysView {
   private static createToy(toy: IToy): void {
-    const toyElem = document.createElement('div');
-    toyElem.className = 'toy-option';
-    const toyCounter = document.createElement('div');
-    const toyImg = document.createElement('img');
+    const toyElem = document.createElement("div");
+    toyElem.className = "toy-option";
+    const toyCounter = document.createElement("div");
+    const toyImg = document.createElement("img");
     toyImg.src = `toys/${toy.num}.png`;
-    toyImg.setAttribute('data-count', toy.count);
-    toyImg.className = 'toy-image';
-    toyCounter.className = 'toy-counter';
+    toyImg.setAttribute("data-count", toy.count);
+    toyImg.className = "toy-image";
+    toyCounter.className = "toy-counter";
     toyCounter.textContent = toy.count;
     toyElem.appendChild(toyCounter);
     toyElem.appendChild(toyImg);
     const toyMove = new ToyMove(toyImg);
     toyMove.generateClones();
-    document.querySelector('.toys-picker')?.appendChild(toyElem);
+    document.querySelector(".toys-picker")?.appendChild(toyElem);
   }
 
   public static clearToys(): void {
-    document.querySelectorAll('.toy-option').forEach((item) => {
+    document.querySelectorAll(".toy-option").forEach((item) => {
       item.remove();
     });
   }

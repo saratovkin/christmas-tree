@@ -1,5 +1,5 @@
-import _default from 'nouislider';
-import './nouislider.css';
+import _default from "nouislider";
+import "./nouislider.css";
 
 const noUiSlider = _default;
 

@@ -26,7 +26,7 @@
 }
 
 .filter-option p {
-  font-family: 'Lora';
+  font-family: "Lora";
   font-weight: 500;
 }
 
@@ -51,7 +51,7 @@
   background-position: center;
   border-radius: 2px;
   cursor: pointer;
-  transition: filter .2s;
+  transition: filter 0.2s;
 }
 
 .color-option,
@@ -60,7 +60,7 @@
   height: 16px;
   border: 1px solid #fff;
   background-color: #fff;
-  transition: transform .2s;
+  transition: transform 0.2s;
   position: relative;
 }
 
@@ -74,7 +74,7 @@
   transform: scale(1.2);
 }
 
-.size-option:first-of-type  {
+.size-option:first-of-type {
   transform: scale(0.8, 0.8);
 }
 
@@ -84,7 +84,8 @@
 
 .shape-option.clicked,
 .size-option.clicked {
-  filter: invert(57%) sepia(55%) saturate(5342%) hue-rotate(330deg) brightness(103%) contrast(96%);
+  filter: invert(57%) sepia(55%) saturate(5342%) hue-rotate(330deg)
+    brightness(103%) contrast(96%);
 }
 
 .color-option.clicked,
@@ -94,7 +95,7 @@
 
 .color-option.clicked::after,
 .fav-option.clicked::after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 1px;
@@ -132,7 +133,7 @@
   width: calc(100% - 20px);
   min-width: 230px;
   height: 30px;
-  padding: 5px 25px; 
+  padding: 5px 25px;
   margin: 10px 0;
   background-color: #fb5756;
   background-image: url("/assets/svg/arrow-down.svg");
@@ -140,7 +141,7 @@
   background-repeat: no-repeat;
   background-position: calc(100% - 5px) center;
   border-radius: 20px;
-  transition: background-color .2s;
+  transition: background-color 0.2s;
   color: #fff;
   cursor: pointer;
 }
@@ -160,7 +161,7 @@
   border: none;
   color: #fff;
   border-radius: 20px;
-  transition: background-color .2s;
+  transition: background-color 0.2s;
   cursor: pointer;
 }
 
@@ -169,4 +170,3 @@
 .reset-fav:hover {
   background-color: #d94d4c;
 }
-

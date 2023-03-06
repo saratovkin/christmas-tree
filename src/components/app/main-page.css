@@ -20,7 +20,7 @@
   font-size: 60px;
   line-height: 60px;
   text-align: center;
-  font-family: 'Lora';
+  font-family: "Lora";
   font-weight: 500;
 }
 
@@ -36,7 +36,7 @@
   border: none;
   color: #fff;
   border-radius: 10px;
-  transition: background-color .2s;
+  transition: background-color 0.2s;
   cursor: pointer;
 }
 

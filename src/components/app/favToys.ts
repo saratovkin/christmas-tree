@@ -1,4 +1,4 @@
-import SavedFilters from './savedFilters';
+import SavedFilters from "./savedFilters";
 
 const favLimit = 20;
 
@@ -17,12 +17,16 @@ class FavToys {
     const index: string = (e.target as HTMLImageElement).alt;
     if (this.favList.includes(index)) {
       this.favList.splice(this.favList.indexOf(index), 1);
-      ((e.target as HTMLElement).parentNode as HTMLElement).classList.remove('fav-toy');
+      ((e.target as HTMLElement).parentNode as HTMLElement).classList.remove(
+        "fav-toy"
+      );
     } else if (this.favList.length < favLimit) {
       this.favList.push(index);
-      ((e.target as HTMLElement).parentNode as HTMLElement).classList.add('fav-toy');
+      ((e.target as HTMLElement).parentNode as HTMLElement).classList.add(
+        "fav-toy"
+      );
     } else {
-      FavToys.showAlertMessage(((e.target as HTMLElement).parentNode));
+      FavToys.showAlertMessage((e.target as HTMLElement).parentNode);
     }
     SavedFilters.setFavToys(this.favList);
     this.updateCounter();
@@ -30,13 +34,21 @@ class FavToys {
 
   private static showAlertMessage(node: Node | null): void {
     if (node !== null) {
-      (node as HTMLElement).querySelector('.fav-limit')?.classList.remove('hide');
-      setTimeout(() => (node as HTMLElement).querySelector('.fav-limit')?.classList.add('hide'), 1500);
+      (node as HTMLElement)
+        .querySelector(".fav-limit")
+        ?.classList.remove("hide");
+      setTimeout(
+        () =>
+          (node as HTMLElement)
+            .querySelector(".fav-limit")
+            ?.classList.add("hide"),
+        1500
+      );
     }
   }
 
   private updateCounter(): void {
-    const node: Element | null = document.querySelector('.fav-count');
+    const node: Element | null = document.querySelector(".fav-count");
     if (node != null) {
       node.textContent = this.favList.length.toString();
     }
@@ -45,8 +57,8 @@ class FavToys {
   public clearFav(): void {
     this.favList = [];
     this.updateCounter();
-    document.querySelectorAll('.fav-toy').forEach((item) => {
-      item.classList.remove('fav-toy');
+    document.querySelectorAll(".fav-toy").forEach((item) => {
+      item.classList.remove("fav-toy");
     });
   }
 }
