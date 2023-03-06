@@ -1,0 +1,226 @@
+.tree-parameters,
+.toy-selector {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  row-gap: 15px;
+  z-index: 2;
+}
+
+.view-option {
+  width: calc(100% - 20px);
+  min-width: 250px;
+  margin: 0 auto;
+  margin-left: 10px;
+  color: #fff;
+  background: #2c7272;
+  border-radius: 10px;
+  padding: 5px;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.section-name {
+  font-family: 'Lora';
+  font-weight: 500;
+  text-align: center;
+}
+
+.fx-buttons {
+  width: calc(100% - 20px);
+  min-width: 250px;
+  margin: 0 auto;
+  margin-left: 10px;
+  color: #fff;
+  background: #2c7272;
+  border-radius: 10px;
+  padding: 15px 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+}
+
+.snow-button,
+.sound-button {
+  width: 40px;
+  height: 40px;
+  background-position: center;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: filter .2s;
+}
+
+.snow-button {
+  background-image: url("/assets/svg/snowflake.svg");
+}
+
+.sound-button {
+  background-image: url("/assets/svg/audio.svg");
+}
+
+.snow-button.clicked,
+.sound-button.clicked {
+  filter: invert(57%) sepia(55%) saturate(5342%) hue-rotate(330deg) brightness(103%) contrast(96%);
+}
+
+.snow-button:hover,
+.sound-button:hover {
+  filter: brightness(.8);
+}
+
+.snow-button.clicked:hover,
+.sound-button.clicked:hover {
+  filter: invert(57%) sepia(55%) saturate(5342%) hue-rotate(330deg) brightness(75%) contrast(96%);
+
+}
+
+.tree-picker,
+.bg-picker,
+.garland-picker,
+.toys-picker {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: calc(100% - 20px);
+  margin: 0 auto;
+}
+
+.garland-picker {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tree-option,
+.bg-option {
+  width: 40px;
+  height: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform .2s;
+  border: 3px solid #fb5756;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.tree-option {
+  width: 80px;
+  height: 80px;
+  background-size: 80px 80px;
+  background-color: #fff;
+}
+
+.bg-option {
+  width: 50px;
+  height: 50px;
+  background-size: 50px 50px;
+}
+
+.tree-option:hover,
+.bg-option:hover {
+  transform: scale(1.1);
+}
+
+.garland-option {
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+.garland-option:hover {
+  transform: scale(1.2);
+}
+
+.garland-option.multi {
+  background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+}
+
+.garland-option.red {
+  background-color: #fd0000;
+}
+
+.garland-option.green {
+  background-color: #08aa05;
+}
+
+.garland-option.blue {
+  background-color: #2299eb;
+}
+
+.garland-option.yellow {
+  background-color: #fdd700;
+}
+
+.garland-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.garland-button,
+.default-button {
+  margin-top: 15px;
+  width: 100px;
+  height: 40px;
+  background-color: #fb5756;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  transition: background-color .2s;
+  cursor: pointer;
+}
+
+.view-option.single-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.default-button {
+  width: 200px;
+}
+
+.garland-button:hover,
+.default-button:hover {
+  background-color: #d94d4c;
+}
+
+@media (max-width:1000px) {
+  .tree-option,
+  .toy-option{
+    width: 50px;
+    height: 50px;
+    background-size: 50px 50px;
+  }
+  .toy-image {
+    width: 35px;
+    height: 35px;
+  }
+  .bg-option {
+    width: 35px;
+    height: 35px;
+  }
+  .view-option,
+  .fx-buttons {
+    min-width: 200px;
+  }
+  .tree-droppable {
+    width: 200px;
+  }
+  .tree-image {
+    width: 250px;
+    height: 600px;
+  }
+  .drop-zone {
+    transform: scale(0.6) translate(8%, 35%);
+  }
+  .tree-lights {
+    height: calc(100% - 150px);
+  }
+}
