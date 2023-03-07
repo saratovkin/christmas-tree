@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div class="toys-container"></div>
+  <div class="toys-container hide"></div>
   <header class="header">
     <div class="header-main">
       <div class="header-logo">
@@ -41,6 +41,21 @@
     <div class="toys-page">
       <aside class="filter-options">
         <div class="filter-option">
+          <p>Sort</p>
+          <select class="sort-select">
+            <option selected="" value="name">
+              By name ascending
+            </option>
+            <option value="name-desc">By name descending</option>
+            <option value="year">
+              By year ascending
+            </option>
+            <option value="year-desc">
+              By year descending
+            </option>
+          </select>
+        </div>
+        <div class="filter-option" id="type-options">
           <p>Filter by type</p>
         </div>
         <div class="filter-option">
@@ -62,24 +77,9 @@
             </div>
           </div>
         </div>
-        <div class="filter-option">
-          <p>Sort</p>
-          <select class="sort-select">
-            <option selected="" value="name">
-              By name ascending
-            </option>
-            <option value="name-desc">By name descending</option>
-            <option value="year">
-              By year ascending
-            </option>
-            <option value="year-desc">
-              By year descending
-            </option>
-          </select>
-          <div class="reset-buttons">
-            <button class="reset-filter">Clear filters</button>
-            <button class="reset-fav">Clear favorite</button>
-          </div>
+        <div class="reset-buttons">
+          <button class="reset-filter">Clear filters</button>
+          <button class="reset-fav">Clear favorite</button>
         </div>
       </aside>
       <div class="decorations-container">

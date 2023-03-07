@@ -99,7 +99,7 @@ class FilterView {
 
   private static getTitle(type: string): string {
     if (type === "fav") return "Grany's favorite";
-    return type.toUpperCase();
+    return type;
   }
 
   private static addFilterNode(type: string): void {
@@ -124,7 +124,7 @@ class FilterView {
       }
       newNode.appendChild(newType);
     });
-    document.querySelector(".filter-option")?.appendChild(newNode);
+    document.getElementById("type-options")?.appendChild(newNode);
   }
 }
 
