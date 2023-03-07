@@ -1,5 +1,5 @@
 import ICondition from "../interfaces/ICondition";
-import {MIN_COUNT, MAX_COUNT,MIN_YEAR,MAX_YEAR} from "../misc/constants";
+import { MIN_COUNT, MAX_COUNT, MIN_YEAR, MAX_YEAR } from "../misc/constants";
 
 class savedFilters {
   public savedCondition: ICondition;
