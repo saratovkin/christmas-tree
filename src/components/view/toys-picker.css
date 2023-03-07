@@ -1,0 +1,49 @@
+.toys-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+}
+
+.toy-option {
+  width: 70px;
+  height: 70px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: 1px solid #e3e3e3;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 3;
+}
+
+.toy-image {
+  position: absolute;
+  width: 50px;
+  top: 6px;
+  left: 6px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.toy-counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  z-index: 4;
+}
+
+.toy-option:hover {
+  transform: scale(1.05);
+}

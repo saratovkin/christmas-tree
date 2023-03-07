@@ -1,0 +1,157 @@
+.tree-page {
+  width: 100%;
+  height: auto;
+  max-width: 1400px;
+  display: flex;
+  flex-wrap: nowrap;
+  column-gap: 10px;
+  margin: 0 auto;
+}
+
+.tree-container,
+.tree-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.tree-container {
+  width: calc(100% - 520px);
+  max-height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.tree-image {
+  width: 400px;
+  height: 700px;
+  background-size: contain;
+  position: relative;
+}
+
+.tree-droppable {
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  transform: translate(-50%, 0) scale(3.3, 2.8);
+}
+
+.tree-lights {
+  position: absolute;
+  width: 100%;
+  top: 40px;
+  height: calc(100% - 100px);
+  pointer-events: none;
+}
+
+.light-line {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.light {
+  background-color: #ff0000;
+  width: 5px;
+  height: 5px;
+  border-radius: 10px;
+  animation-name: flickerRed;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+  opacity: 1;
+  filter: brightness(200%);
+}
+
+.light:nth-child(2n + 1) {
+  animation-duration: 1s;
+}
+
+.light:nth-child(3n + 2) {
+  animation-duration: 0.8s;
+}
+.light:nth-child(7n + 1) {
+  animation-duration: 0.6s;
+}
+
+@keyframes flickerRed {
+  0% {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow: 0px 0px 5px 10px rgba(255, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+@keyframes flickerYellow {
+  0% {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow: 0px 0px 5px 10px rgba(238, 255, 0, 0.2);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+@keyframes flickerGreen {
+  0% {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow: 0px 0px 5px 10px rgba(0, 255, 136, 0.2);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+@keyframes flickerBlue {
+  0% {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow: 0px 0px 5px 10px rgba(0, 89, 255, 0.2);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .tree-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  .tree-container {
+    width: 100%;
+    grid-area: 1 / 1 / 2 / 3;
+    height: auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .tree-page {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+  .tree-container {
+    grid-area: 1;
+  }
+}
