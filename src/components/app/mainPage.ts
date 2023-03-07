@@ -15,9 +15,12 @@ class MainPage {
   }
 
   private showToysPage(): void {
-    document.querySelector(".toys-page")?.classList.remove("hide");
-    document.querySelector(".tree-page")?.classList.add("hide");
-    document.querySelector(".toys-container")?.classList.add("hide");
+    const toysPage = document.querySelector(".toys-page");
+    if (toysPage) toysPage.classList.remove("hide");
+    const treePage = document.querySelector(".tree-page");
+    if (treePage) treePage.classList.add("hide");
+    const toysContainer = document.querySelector(".toys-container");
+    if (toysContainer) toysContainer.classList.add("hide");
     this.toysBtn.classList.add("clicked");
     this.treeBtn.classList.remove("clicked");
     this.searchInput.classList.remove("hide");
@@ -26,9 +29,12 @@ class MainPage {
   }
 
   private showTreePage(): void {
-    document.querySelector(".toys-page")?.classList.add("hide");
-    document.querySelector(".tree-page")?.classList.remove("hide");
-    document.querySelector(".toys-container")?.classList.remove("hide");
+    const toysPage = document.querySelector(".toys-page");
+    if (toysPage) toysPage.classList.add("hide");
+    const treePage = document.querySelector(".tree-page");
+    if (treePage) treePage.classList.remove("hide");
+    const toysContainer = document.querySelector(".toys-container");
+    if (toysContainer) toysContainer.classList.remove("hide");
     this.toysBtn.classList.remove("clicked");
     this.treeBtn.classList.add("clicked");
     this.searchInput.classList.add("hide");

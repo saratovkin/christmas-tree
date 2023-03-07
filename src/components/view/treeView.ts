@@ -12,7 +12,8 @@ class TreeView {
     btn.addEventListener("click", (e) => {
       TreeView.changeBg(e, type);
     });
-    document.querySelector(`.${type}-picker`)!.appendChild(btn);
+    const picker = document.querySelector(`.${type}-picker`);
+    if (picker) picker.appendChild(btn);
   }
 
   private static changeBg(e: Event, type: string) {

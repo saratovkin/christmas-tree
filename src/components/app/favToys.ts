@@ -14,46 +14,37 @@ class FavToys {
   }
 
   public toggleFav(e: Event): void {
-    console.log(e.target);
-    const index: string = (e.target as HTMLElement).id;
-    console.log(index);
+    if (!e.target) return;
+    const current = e.target as HTMLElement;
+    const parent = current.parentNode as HTMLElement;
+    const index: string = current.id;
     if (this.favList.includes(index)) {
       this.favList.splice(this.favList.indexOf(index), 1);
-      ((e.target as HTMLElement).parentNode as HTMLElement).classList.remove(
-        "fav-toy"
-      );
+      parent.classList.remove("fav-toy");
     } else if (this.favList.length < favLimit) {
       this.favList.push(index);
-      ((e.target as HTMLElement).parentNode as HTMLElement).classList.add(
-        "fav-toy"
-      );
+      parent.classList.add("fav-toy");
     } else {
-      FavToys.showAlertMessage((e.target as HTMLElement).parentNode);
+      FavToys.showAlertMessage(current.parentNode);
     }
     SavedFilters.setFavToys(this.favList);
     this.updateCounter();
   }
 
   private static showAlertMessage(node: Node | null): void {
-    if (node !== null) {
-      (node as HTMLElement)
-        .querySelector(".fav-limit")
-        ?.classList.remove("hide");
-      setTimeout(
-        () =>
-          (node as HTMLElement)
-            .querySelector(".fav-limit")
-            ?.classList.add("hide"),
-        1500
-      );
-    }
+    if (node === null) return;
+    const elem = node as HTMLElement;
+    elem.querySelector(".fav-limit")?.classList.remove("hide");
+    setTimeout(
+      () => elem.querySelector(".fav-limit")?.classList.add("hide"),
+      1500
+    );
   }
 
   private updateCounter(): void {
-    const node: Element | null = document.querySelector(".fav-count");
-    if (node != null) {
-      node.textContent = this.favList.length.toString();
-    }
+    const counter = document.querySelector(".fav-count");
+    if (!counter) return;
+    counter.textContent = this.favList.length.toString();
   }
 
   public clearFav(): void {

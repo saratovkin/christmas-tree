@@ -47,30 +47,31 @@ class DataView {
           this.favToys.toggleFav(e);
           this.showFavToys();
         });
-      decorationCardClone.querySelector(".decoration-name")!.textContent =
-        item.name;
-      decorationCardClone.querySelector(
-        ".decoration-count"
-      )!.textContent = `Amount: ${item.count}`;
-      decorationCardClone.querySelector(
-        ".decoration-year"
-      )!.textContent = `Year: ${item.year}`;
-      decorationCardClone.querySelector(
-        ".decoration-shape"
-      )!.textContent = `Shape: ${item.shape}`;
-      decorationCardClone.querySelector(
-        ".decoration-color"
-      )!.textContent = `Color: ${item.color}`;
-      decorationCardClone.querySelector(
-        ".decoration-size"
-      )!.textContent = `Size: ${item.size}`;
-      decorationCardClone.querySelector(
-        ".decoration-is-fav"
-      )!.textContent = `Grany's favorite ${item.favorite ? "yes" : "no"}`;
+      (
+        decorationCardClone.querySelector(".decoration-name") as HTMLElement
+      ).textContent = item.name;
+      (
+        decorationCardClone.querySelector(".decoration-count") as HTMLElement
+      ).textContent = `Amount: ${item.count}`;
+      (
+        decorationCardClone.querySelector(".decoration-year") as HTMLElement
+      ).textContent = `Year: ${item.year}`;
+      (
+        decorationCardClone.querySelector(".decoration-shape") as HTMLElement
+      ).textContent = `Shape: ${item.shape}`;
+      (
+        decorationCardClone.querySelector(".decoration-color") as HTMLElement
+      ).textContent = `Color: ${item.color}`;
+      (
+        decorationCardClone.querySelector(".decoration-size") as HTMLElement
+      ).textContent = `Size: ${item.size}`;
+      (
+        decorationCardClone.querySelector(".decoration-is-fav") as HTMLElement
+      ).textContent = `Grany's favorite ${item.favorite ? "yes" : "no"}`;
       if (this.favToys.favList.includes(item.num)) {
-        decorationCardClone
-          .querySelector(".decoration")
-          ?.classList.add("fav-toy");
+        (
+          decorationCardClone.querySelector(".decoration") as HTMLElement
+        ).classList.add("fav-toy");
       }
       (
         decorationCardClone.querySelector(

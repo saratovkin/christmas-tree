@@ -109,7 +109,8 @@ class Filter {
 
   private setSortType(e: Event): void {
     if (e) {
-      this.updateCondition("sort", (e.currentTarget as HTMLInputElement).value);
+      const sortType = e.currentTarget as HTMLInputElement;
+      this.updateCondition("sort", sortType.value);
     }
     this.showFiltered();
   }
