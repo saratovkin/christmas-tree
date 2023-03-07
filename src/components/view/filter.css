@@ -216,7 +216,7 @@
     grid-template-columns: 1fr 1fr;
     padding-bottom: 10px;
   }
-  .reset-buttons::after{
+  .reset-buttons::after {
     content: "";
   }
   .filter-option:last-child {
