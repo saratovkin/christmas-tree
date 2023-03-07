@@ -71,11 +71,6 @@ select {
   align-items: center;
 }
 
-.header-nav a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .nav {
   margin: 0;
   position: relative;
