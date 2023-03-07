@@ -1,21 +1,20 @@
 .tree-parameters,
 .toy-selector {
-  width: 30%;
+  width: 250px;
   display: flex;
+  padding: 20px 10px;
   flex-direction: column;
   justify-content: flex-start;
-  row-gap: 15px;
+  row-gap: 20px;
   z-index: 2;
   background-color: #fff;
   box-shadow: 0 3px 30px rgb(0 0 0 / 7%);
 }
 
 .view-option {
-  width: calc(100% - 20px);
+  width: 250px;
   margin: 0 auto;
-  margin-left: 10px;
   background-color: #fff;
-  padding-bottom: 15px;
   box-sizing: border-box;
   position: relative;
 }
@@ -27,7 +26,7 @@
   height: 2px;
   background-color: #e3e3e3;
   left: 0;
-  bottom: 0;
+  bottom: -20px;
 }
 
 .section-name {
@@ -37,13 +36,10 @@
 }
 
 .fx-buttons {
-  width: calc(100% - 20px);
   min-width: 250px;
   margin: 0 auto;
-  margin-left: 10px;
   color: #fff;
   border-radius: 10px;
-  padding: 15px 5px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -92,29 +88,27 @@
 .garland-picker,
 .toys-picker {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 10px;
-  width: calc(100% - 20px);
+  gap: 5px;
   margin: 0 auto;
   user-select: none;
 }
 
 .toys-picker {
-  justify-content: space-evenly;
-  gap: 5px;
+  width: 230px;
+  margin: 0 auto;
+  gap: 10px;
 }
 
 .garland-picker {
-  width: 200px;
+  width: 150px;
   justify-content: space-between;
   align-items: center;
 }
 
 .tree-option,
 .bg-option {
-  width: 40px;
-  height: 40px;
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
@@ -131,9 +125,9 @@
 }
 
 .bg-option {
-  width: 50px;
-  height: 50px;
-  background-size: 50px 50px;
+  width: 46px;
+  height: 46px;
+  background-size: 46px 46px;
 }
 
 .tree-option:hover,
@@ -192,7 +186,7 @@
 .default-button {
   width: 150px;
   height: 40px;
-  margin: 10px 0;
+  margin: 10px auto;
   transition: background-color 0.2s;
   background-color: #fff;
   border: 1px solid #e3e3e3;
@@ -206,8 +200,7 @@
 }
 
 .default-button {
-  width: 200px;
-  margin: 0 auto;
+  margin-top: 20px;
 }
 
 .garland-button:hover,
@@ -220,17 +213,22 @@
   .toy-selector {
     width: 100%;
     padding: 10px 0;
+    gap: 10px;
   }
   .tree-picker,
   .bg-picker {
     gap: 5px;
     justify-content: center;
+    padding: 0 5px;
   }
   .tree-option,
   .toy-option {
     width: 50px;
     height: 50px;
     background-size: 50px 50px;
+  }
+  .view-option {
+    width: auto;
   }
   .toy-image {
     width: 35px;
@@ -255,5 +253,17 @@
   }
   .tree-lights {
     height: calc(100% - 150px);
+  }
+  aside {
+    height: auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .toy-selector {
+    grid-area: 2;
+  }
+  .tree-parameters {
+    grid-area: 3;
   }
 }

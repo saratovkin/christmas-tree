@@ -1,5 +1,5 @@
 import toggle from "../misc/toggle";
-import {MIN_COUNT, MAX_COUNT,MIN_YEAR,MAX_YEAR} from "../misc/constants";
+import { MIN_COUNT, MAX_COUNT, MIN_YEAR, MAX_YEAR } from "../misc/constants";
 
 import Slider from "../nouislider/sliderInit";
 import FilterView from "../view/filterView";
@@ -189,9 +189,7 @@ class Filter {
     if (!this.slider.countSlider || !this.slider.countSlider.noUiSlider) return;
     if (!this.slider.yearSlider || !this.slider.yearSlider.noUiSlider) return;
     this.slider.countSlider.noUiSlider.reset();
-    this.slider.countSlider.noUiSlider.set([MIN_COUNT, MAX_COUNT]);
     this.slider.yearSlider.noUiSlider.reset();
-    this.slider.yearSlider.noUiSlider.set([MIN_YEAR, MAX_YEAR]);
     this.condition = {
       count: [MIN_COUNT, MAX_COUNT],
       year: [MIN_YEAR, MAX_YEAR],

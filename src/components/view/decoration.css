@@ -1,10 +1,9 @@
 .decorations-container {
-  width: 85%;
-  display: flex;
-  gap: 20px 20px;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin-bottom: 50px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  gap: 20px;
   position: relative;
 }
 
@@ -43,7 +42,7 @@
 }
 
 .decoration:hover .decoration-specs {
-  bottom: 0;
+  bottom: 50%;
 }
 
 .decoration .material-symbols-outlined,
@@ -71,6 +70,7 @@
   position: absolute;
   left: 0;
   bottom: -100%;
+  transform: translateY(50%);
   background-color: inherit;
   box-shadow: inherit;
   text-align: left;
@@ -113,8 +113,26 @@
   opacity: 0;
 }
 
+@media (max-width: 1250px) {
+  .decorations-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 @media (max-width: 1000px) {
   .decorations-container {
     width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .decorations-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .decorations-container {
+    grid-template-columns: 1fr;
   }
 }

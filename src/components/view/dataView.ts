@@ -67,7 +67,7 @@ class DataView {
       ).textContent = `Size: ${item.size}`;
       (
         decorationCardClone.querySelector(".decoration-is-fav") as HTMLElement
-      ).textContent = `Grany's favorite ${item.favorite ? "yes" : "no"}`;
+      ).textContent = `Grany's favorite: ${item.favorite ? "Yes" : "No"}`;
       if (this.favToys.favList.includes(item.num)) {
         (
           decorationCardClone.querySelector(".decoration") as HTMLElement
