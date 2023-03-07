@@ -42,7 +42,7 @@ class DataView {
         ) as HTMLImageElement
       ).alt = item.num;
       decorationCardClone
-        .querySelector(".decoration-image")
+        .querySelector(".decoration-toggle-fav")
         ?.addEventListener("click", (e) => {
           this.favToys.toggleFav(e);
           this.showFavToys();
@@ -57,20 +57,26 @@ class DataView {
       )!.textContent = `Год покупки: ${item.year}`;
       decorationCardClone.querySelector(
         ".decoration-shape"
-      )!.textContent = `Форма игрушки: ${item.shape}`;
+      )!.textContent = `Форма: ${item.shape}`;
       decorationCardClone.querySelector(
         ".decoration-color"
-      )!.textContent = `Цвет игрушки: ${item.color}`;
+      )!.textContent = `Цвет: ${item.color}`;
       decorationCardClone.querySelector(
         ".decoration-size"
-      )!.textContent = `Размер игрушки: ${item.size}`;
-      decorationCardClone.querySelector(".decoration-is-fav")!.textContent =
-        item.favorite ? "Любимая: да" : "Любимая: нет";
+      )!.textContent = `Размер: ${item.size}`;
+      decorationCardClone.querySelector(
+        ".decoration-is-fav"
+      )!.textContent = `Любимая: ${item.favorite ? "да" : "нет"}`;
       if (this.favToys.favList.includes(item.num)) {
         decorationCardClone
           .querySelector(".decoration")
           ?.classList.add("fav-toy");
       }
+      (
+        decorationCardClone.querySelector(
+          ".decoration-toggle-fav"
+        ) as HTMLElement
+      ).id = item.num;
       fragment.append(decorationCardClone);
     });
     document.querySelector(".decorations-container")?.appendChild(fragment);

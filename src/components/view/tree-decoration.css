@@ -1,10 +1,10 @@
 .tree-page {
-  width: calc(100% - 20px);
+  width: 100%;
   max-width: 1400px;
   display: flex;
   flex-wrap: nowrap;
   column-gap: 10px;
-  margin: 50px auto;
+  margin: 0;
 }
 
 .tree-container,
@@ -23,7 +23,6 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border-radius: 10px;
 }
 
 .tree-image {
@@ -131,4 +130,15 @@
 
 .hide {
   display: none;
+}
+
+@media (max-width: 1000px) {
+  .tree-page {
+    flex-direction: column-reverse;
+    align-items: center;
+    row-gap: 10px;
+  }
+  .tree-container {
+    width: 100%;
+  }
 }

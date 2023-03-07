@@ -1,5 +1,3 @@
-import "./main-page.css";
-
 class MainPage {
   private toysBtn: HTMLElement;
 

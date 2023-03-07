@@ -14,7 +14,9 @@ class FavToys {
   }
 
   public toggleFav(e: Event): void {
-    const index: string = (e.target as HTMLImageElement).alt;
+    console.log(e.target);
+    const index: string = (e.target as HTMLElement).id;
+    console.log(index);
     if (this.favList.includes(index)) {
       this.favList.splice(this.favList.indexOf(index), 1);
       ((e.target as HTMLElement).parentNode as HTMLElement).classList.remove(
