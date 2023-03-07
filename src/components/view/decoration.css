@@ -22,7 +22,6 @@
   overflow-y: hidden;
   overflow-x: none;
   border: 1px solid #eaeaea;
-  cursor: pointer;
 }
 
 .decoration-toggle-fav {
@@ -35,6 +34,7 @@
 
 .decoration-toggle-fav span {
   pointer-events: none;
+  cursor: pointer;
 }
 
 .decoration:hover {
