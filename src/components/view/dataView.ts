@@ -51,22 +51,22 @@ class DataView {
         item.name;
       decorationCardClone.querySelector(
         ".decoration-count"
-      )!.textContent = `Количество: ${item.count}`;
+      )!.textContent = `Amount: ${item.count}`;
       decorationCardClone.querySelector(
         ".decoration-year"
-      )!.textContent = `Год покупки: ${item.year}`;
+      )!.textContent = `Year: ${item.year}`;
       decorationCardClone.querySelector(
         ".decoration-shape"
-      )!.textContent = `Форма: ${item.shape}`;
+      )!.textContent = `Shape: ${item.shape}`;
       decorationCardClone.querySelector(
         ".decoration-color"
-      )!.textContent = `Цвет: ${item.color}`;
+      )!.textContent = `Color: ${item.color}`;
       decorationCardClone.querySelector(
         ".decoration-size"
-      )!.textContent = `Размер: ${item.size}`;
+      )!.textContent = `Size: ${item.size}`;
       decorationCardClone.querySelector(
         ".decoration-is-fav"
-      )!.textContent = `Любимая: ${item.favorite ? "да" : "нет"}`;
+      )!.textContent = `Grany's favorite ${item.favorite ? "yes" : "no"}`;
       if (this.favToys.favList.includes(item.num)) {
         decorationCardClone
           .querySelector(".decoration")

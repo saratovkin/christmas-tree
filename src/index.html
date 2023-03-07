@@ -1,206 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Christmas Tree</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,100,0,0"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,100,1,0"
-    />
-    <link rel="icon" src="assets/favicon.ico" />
-  </head>
 
-  <body>
-    <div class="toys-container"></div>
-    <header class="header">
-      <div class="header-main">
-        <div class="header-logo">
-          <p>CTR</p>
-          <h1>Christmas Tree Decoration</h1>
-        </div>
-        <div class="misc-container">
-          <input
-            type="search"
-            class="search"
-            placeholder="Поиск"
-            autocomplete="off"
-          />
-          <span class="fav-count"> 0 </span>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christmas Tree</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,100,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,100,1,0" />
+  <link rel="icon" src="assets/favicon.ico" />
+</head>
+
+<body>
+  <div class="toys-container"></div>
+  <header class="header">
+    <div class="header-main">
+      <div class="header-logo">
+        <p>CTR</p>
+        <h1>Christmas Tree Decoration</h1>
       </div>
-      <div class="header-nav">
-        <span class="nav clicked" id="toys-button">Игрушки</span>
-        <span class="nav" id="tree-button">Елка</span>
-        <a class="nav" href="https://github.com/saratovkin" target="_blank"
-          >GitHub</a
-        >
+      <div class="misc-container">
+        <input type="search" class="search" placeholder="Search" autocomplete="off" />
+        <span class="fav-count"> 0 </span>
       </div>
-    </header>
-    <main class="main">
-      <div class="toys-page">
-        <aside class="filter-options">
-          <div class="filter-option">
-            <p>Фильтры по значению</p>
-          </div>
-          <div class="filter-option">
-            <p>Фильтры по диапозону</p>
-            <div class="count-slider">
-              <span>Количество экземпляров:</span>
-              <div class="slider-container">
-                <span class="count-from">1</span>
-                <div class="slider" id="count-slider"></div>
-                <span class="count-to">12</span>
-              </div>
-            </div>
-            <div class="year-slider">
-              <span>Год приобретения:</span>
-              <div class="slider-container">
-                <span class="year-from">1940</span>
-                <div class="slider" id="year-slider"></div>
-                <span class="year-to">2020</span>
-              </div>
-            </div>
-          </div>
-          <div class="filter-option">
-            <p>Сортировка</p>
-            <select class="sort-select">
-              <optgroup>
-                <option selected="" value="name">
-                  По названию от «А» до «Я»
-                </option>
-                <option value="name-desc">По названию от «Я» до «А»</option>
-                <option value="year">
-                  По году приобретения по возрастанию
-                </option>
-                <option value="year-desc">
-                  По году приобретения по убыванию
-                </option>
-              </optgroup>
-            </select>
-            <div class="reset-buttons">
-              <button class="reset-filter">Сбросить Фильтры</button>
-              <button class="reset-fav">Сбросить Избранное</button>
-            </div>
-          </div>
-        </aside>
-        <div class="decorations-container">
-          <div class="search-alert hide">
-            <span>
-              К сожалению, по вашему запросу совпадений не найдено. <br />
-              Измените запрос и попробуйте ещё раз.
-            </span>
-          </div>
-          <template id="decorationTemplate">
-            <div class="decoration">
-              <div class="fav-limit hide">
-                <span> Лимит избранного - 20 шт. </span>
-              </div>
-              <div class="decoration-toggle-fav">
-                <span class="material-symbols-outlined"> favorite </span>
-                <span class="material-symbols-sharp"> favorite </span>
-              </div>
-              <img class="decoration-image" src="" alt="" />
-              <div class="decoration-name"></div>
-              <div class="decoration-specs">
-                <span class="decoration-count"></span>
-                <span class="decoration-year"></span>
-                <span class="decoration-shape"></span>
-                <span class="decoration-color"></span>
-                <span class="decoration-size"></span>
-                <span class="decoration-is-fav"></span>
-              </div>
-            </div>
-          </template>
+    </div>
+    <div class="header-nav">
+      <span class="nav clicked" id="toys-button">Toys</span>
+      <span class="nav" id="tree-button">Tree</span>
+      <a class="nav" href="https://github.com/saratovkin" target="_blank">GitHub</a>
+    </div>
+  </header>
+  <main class="main">
+    <div class="toys-page">
+      <aside class="filter-options">
+        <div class="filter-option">
+          <p>Filter by type</p>
         </div>
-      </div>
-      <div class="tree-page hide">
-        <aside class="tree-parameters">
-          <div class="view-option">
-            <p class="section-name">Выбери елку</p>
-            <div class="tree-picker"></div>
-          </div>
-          <div class="view-option">
-            <p class="section-name">Выбери фон</p>
-            <div class="bg-picker"></div>
-          </div>
-          <div class="view-option">
-            <p class="section-name">Гирлянда</p>
-            <div class="garland-picker">
-              <div class="garland-option multi"></div>
-              <div class="garland-option red"></div>
-              <div class="garland-option yellow"></div>
-              <div class="garland-option green"></div>
-              <div class="garland-option blue"></div>
-            </div>
-            <div class="garland-switch">
-              <button class="garland-button hide">Отключить</button>
+        <div class="filter-option">
+          <p>Filter by range</p>
+          <div class="count-slider">
+            <span>Amount:</span>
+            <div class="slider-container">
+              <span class="count-from">1</span>
+              <div class="slider" id="count-slider"></div>
+              <span class="count-to">12</span>
             </div>
           </div>
-          <button class="default-button" id="default-tree">
-            Сбросить настройки
-          </button>
-        </aside>
-        <div class="tree-container bg-image">
-          <div class="snow-container hide" id="snow-container">
-            <div class="snowflakes">
-              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
-              ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
-              ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
-              ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
-              ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
-              ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
-              ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
-              ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
-              ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
-              ><i></i><i></i><i></i>
+          <div class="year-slider">
+            <span>Year:</span>
+            <div class="slider-container">
+              <span class="year-from">1940</span>
+              <div class="slider" id="year-slider"></div>
+              <span class="year-to">2020</span>
             </div>
-          </div>
-          <div class="tree-image">
-            <svg class="tree-droppable" height="200" width="300">
-              <path
-                class="drop-zone"
-                d="M150 0 L75 200 L225 200 Z"
-                fill="transparent"
-              />
-            </svg>
-            <div class="tree-lights"></div>
           </div>
         </div>
-        <aside class="toy-selector">
-          <div class="fx-buttons">
-            <div class="sound-button" id="music-button"></div>
-            <div class="snow-button" id="snow-button"></div>
+        <div class="filter-option">
+          <p>Sort</p>
+          <select class="sort-select">
+            <option selected="" value="name">
+              By name ascending
+            </option>
+            <option value="name-desc">By name descending</option>
+            <option value="year">
+              By year ascending
+            </option>
+            <option value="year-desc">
+              By year descending
+            </option>
+          </select>
+          <div class="reset-buttons">
+            <button class="reset-filter">Clear filters</button>
+            <button class="reset-fav">Clear favorite</button>
           </div>
-          <div class="view-option">
-            <p class="section-name">Игрушки</p>
-            <div class="toys-picker"></div>
+        </div>
+      </aside>
+      <div class="decorations-container">
+        <div class="search-alert hide">
+          <span>
+            Unfortunately, nothing was found. <br />
+            Please change your request and try again.
+          </span>
+        </div>
+        <template id="decorationTemplate">
+          <div class="decoration">
+            <div class="fav-limit hide">
+              <span> Favorite limit is 20 pcs. </span>
+            </div>
+            <div class="decoration-toggle-fav">
+              <span class="material-symbols-outlined"> favorite </span>
+              <span class="material-symbols-sharp"> favorite </span>
+            </div>
+            <img class="decoration-image" src="" alt="" />
+            <div class="decoration-name"></div>
+            <div class="decoration-specs">
+              <span class="decoration-count"></span>
+              <span class="decoration-year"></span>
+              <span class="decoration-shape"></span>
+              <span class="decoration-color"></span>
+              <span class="decoration-size"></span>
+              <span class="decoration-is-fav"></span>
+            </div>
           </div>
-          <!-- <div class="view-option single-button">
-          <button class="default-button" id="default-tree">
-            Сбросить настройки
-          </button>
-        </div> -->
-        </aside>
+        </template>
       </div>
-    </main>
-    <footer class="footer">
-      <p>2023</p>
-      <p>Christmas Tree App</p>
-      <a href="https://github.com/saratovkin" target="_blank">GitHub</a>
-    </footer>
-  </body>
+    </div>
+    <div class="tree-page hide">
+      <aside class="tree-parameters">
+        <div class="view-option">
+          <p class="section-name">Choose a tree</p>
+          <div class="tree-picker"></div>
+        </div>
+        <div class="view-option">
+          <p class="section-name">Choose a background</p>
+          <div class="bg-picker"></div>
+        </div>
+        <div class="view-option">
+          <p class="section-name">Garland</p>
+          <div class="garland-picker">
+            <div class="garland-option multi"></div>
+            <div class="garland-option red"></div>
+            <div class="garland-option yellow"></div>
+            <div class="garland-option green"></div>
+            <div class="garland-option blue"></div>
+          </div>
+          <div class="garland-switch">
+            <button class="garland-button hide">Turn off</button>
+          </div>
+        </div>
+        <button class="default-button" id="default-tree">
+          Reset settings
+        </button>
+      </aside>
+      <div class="tree-container bg-image">
+        <div class="snow-container hide" id="snow-container">
+          <div class="snowflakes">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+        <div class="tree-image">
+          <svg class="tree-droppable" height="200" width="300">
+            <path class="drop-zone" d="M150 0 L75 200 L225 200 Z" fill="transparent" />
+          </svg>
+          <div class="tree-lights"></div>
+        </div>
+      </div>
+      <aside class="toy-selector">
+        <div class="fx-buttons">
+          <div class="sound-button" id="music-button"></div>
+          <div class="snow-button" id="snow-button"></div>
+        </div>
+        <div class="view-option">
+          <p class="section-name">Toys</p>
+          <div class="toys-picker"></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <footer class="footer">
+    <p>2023</p>
+    <p>Christmas Tree App</p>
+    <a href="https://github.com/saratovkin" target="_blank">GitHub</a>
+  </footer>
+</body>
+
 </html>

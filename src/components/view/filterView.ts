@@ -51,11 +51,11 @@ class FilterView {
   private static getAttributes(type: string): string[] {
     switch (type) {
       case "shape":
-        return ["шар", "фигурка", "колокольчик", "шишка", "снежинка"];
+        return ["ball", "toy", "bell", "cone", "snowflake"];
       case "color":
-        return ["желтый", "зелёный", "красный", "белый", "синий"];
+        return ["yellow", "green", "red", "white", "blue"];
       case "size":
-        return ["малый", "средний", "большой"];
+        return ["small", "medium", "large"];
       case "fav":
         return ["false"];
       default:
@@ -98,18 +98,8 @@ class FilterView {
   }
 
   private static getTitle(type: string): string {
-    switch (type) {
-      case "shape":
-        return "Форма";
-      case "color":
-        return "Цвет";
-      case "size":
-        return "Размер";
-      case "fav":
-        return "Только любимые";
-      default:
-        return "";
-    }
+    if (type === "fav") return "Grany's favorite";
+    return type.toUpperCase();
   }
 
   private static addFilterNode(type: string): void {
