@@ -1,5 +1,5 @@
 import ICondition from "../interfaces/ICondition";
-import constValues from "../misc/constValues";
+import {MIN_COUNT, MAX_COUNT,MIN_YEAR,MAX_YEAR} from "../misc/constants";
 
 class savedFilters {
   public savedCondition: ICondition;
@@ -10,8 +10,8 @@ class savedFilters {
     this.savedCondition = JSON.parse(
       localStorage.getItem("condition") as string
     ) || {
-      count: [constValues.minCount, constValues.maxCount],
-      year: [constValues.minYear, constValues.maxYear],
+      count: [MIN_COUNT, MAX_COUNT],
+      year: [MIN_YEAR, MAX_YEAR],
       shape: [],
       color: [],
       size: [],
@@ -28,8 +28,8 @@ class savedFilters {
 
   public setDefaultFilter(): void {
     this.savedCondition = {
-      count: [constValues.minCount, constValues.maxCount],
-      year: [constValues.minYear, constValues.maxYear],
+      count: [MIN_COUNT, MAX_COUNT],
+      year: [MIN_YEAR, MAX_YEAR],
       shape: [],
       color: [],
       size: [],

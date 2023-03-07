@@ -1,5 +1,5 @@
 import toggle from "../misc/toggle";
-import constValues from "../misc/constValues";
+import {MIN_COUNT, MAX_COUNT,MIN_YEAR,MAX_YEAR} from "../misc/constants";
 
 import Slider from "../nouislider/sliderInit";
 import FilterView from "../view/filterView";
@@ -186,11 +186,15 @@ class Filter {
   }
 
   private clearFilters(): void {
-    this.slider.countSlider!.noUiSlider!.reset();
-    this.slider.yearSlider!.noUiSlider!.reset();
+    if (!this.slider.countSlider || !this.slider.countSlider.noUiSlider) return;
+    if (!this.slider.yearSlider || !this.slider.yearSlider.noUiSlider) return;
+    this.slider.countSlider.noUiSlider.reset();
+    this.slider.countSlider.noUiSlider.set([MIN_COUNT, MAX_COUNT]);
+    this.slider.yearSlider.noUiSlider.reset();
+    this.slider.yearSlider.noUiSlider.set([MIN_YEAR, MAX_YEAR]);
     this.condition = {
-      count: [constValues.minCount, constValues.maxCount],
-      year: [constValues.minYear, constValues.maxYear],
+      count: [MIN_COUNT, MAX_COUNT],
+      year: [MIN_YEAR, MAX_YEAR],
       shape: [],
       color: [],
       size: [],
@@ -213,9 +217,11 @@ class Filter {
   }
 
   private showFilterValues(): void {
+    if (!this.slider.countSlider || !this.slider.countSlider.noUiSlider) return;
+    if (!this.slider.yearSlider || !this.slider.yearSlider.noUiSlider) return;
     FilterView.showSelectedFilters(this.condition);
-    this.slider.countSlider!.noUiSlider!.set(this.condition.count);
-    this.slider.yearSlider!.noUiSlider!.set(this.condition.year);
+    this.slider.countSlider.noUiSlider.set(this.condition.count);
+    this.slider.yearSlider.noUiSlider.set(this.condition.year);
     (document.querySelector(".search") as HTMLInputElement).value =
       this.condition.searchKey;
     this.setRange("year", this.condition.year);
@@ -223,22 +229,24 @@ class Filter {
   }
 
   private initFilters(): void {
+    if (!this.slider.countSlider || !this.slider.countSlider.noUiSlider) return;
+    if (!this.slider.yearSlider || !this.slider.yearSlider.noUiSlider) return;
     FilterView.drawFilters();
     ["shape", "color", "size", "fav"].forEach((item) => {
       document
         .querySelector(`.${item}-filters`)
         ?.addEventListener("click", (e: Event) => this.setShape(item, e));
     });
-    this.slider.countSlider!.noUiSlider!.on("slide", () => {
+    this.slider.countSlider.noUiSlider.on("slide", () => {
       this.setRange(
         "count",
-        this.slider.countSlider!.noUiSlider!.get() as string[]
+        this.slider.countSlider.noUiSlider?.get() as string[]
       );
     });
-    this.slider.yearSlider!.noUiSlider!.on("slide", () => {
+    this.slider.yearSlider.noUiSlider.on("slide", () => {
       this.setRange(
         "year",
-        this.slider.yearSlider!.noUiSlider!.get() as string[]
+        this.slider.yearSlider.noUiSlider?.get() as string[]
       );
     });
     document
