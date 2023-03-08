@@ -2,7 +2,7 @@
 
 ## 🌐 Deploy
 
-### https://saratovkin.github.io/christmas-tree/
+[Christmas Tree Application](https://saratovkin.github.io/christmas-tree/)
 
 ## ℹ️ About
 CTA (Christmas Tree Application) - is an appplication that allows users to interact with a small database - a list of grandma's decorations.
