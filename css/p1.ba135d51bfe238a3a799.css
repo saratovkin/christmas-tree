@@ -175,7 +175,7 @@ select {
 }
 
 .hide {
-  display: none;
+  display: none!important;
 }
 
 @media (max-width: 1000px) {
